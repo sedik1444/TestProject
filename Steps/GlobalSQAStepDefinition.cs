@@ -147,7 +147,7 @@ namespace TestProject.Steps
             Waiters.WaitForDownloadingFormDisplaying(_webDriver, 10);
             Waiters.WaitForDownloadingFile(_webDriver, 10);
             GlobalSQAProgressBarPage.GetDownloadingProgress().Should().Be(expectedProgress,
-                $"Actual downloading progress is {GlobalSQAProgressBarPage.GetDownloadingProgress()}");
+                $"Actual downloading progress is {GlobalSQAProgressBarPage.GetDownloadingProgress()} not as {expectedProgress}");
         }
 
         [StepDefinition(@"downloading status is ""(.*)""")]
