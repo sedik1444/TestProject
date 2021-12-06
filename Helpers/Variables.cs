@@ -18,6 +18,8 @@ namespace TestProject.Helpers
         });
         
         public static Config Config => Configuration.Value;
+
+        public static string GlobalSQADemoTestingSiteURL = $"{Config.URL.GlobalSQA.Default}demo-site/";
     }
 
 }

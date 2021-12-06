@@ -85,12 +85,16 @@ namespace TestProject.Pages.ETSY
                     break;
                 case 2:
                     SelectDropDownValue(ItemConfigurationsList.ElementAt(0));
+                    Waiters.WaitForLoadingFinished(_webDriver, 5);
                     SelectDropDownValue(ItemConfigurationsList.ElementAt(1));
                     break;
                 case 3:
                     SelectDropDownValue(ItemConfigurationsList.ElementAt(0));
+                    Waiters.WaitForLoadingFinished(_webDriver, 5);
                     SelectDropDownValue(ItemConfigurationsList.ElementAt(1));
+                    Waiters.WaitForLoadingFinished(_webDriver, 5);
                     SelectDropDownValue(ItemConfigurationsList.ElementAt(2));
+                    Waiters.WaitForLoadingFinished(_webDriver, 5);
                     break;
                 default:
                     return;
@@ -116,9 +120,7 @@ namespace TestProject.Pages.ETSY
         
         public void SelectDropDownValue(IWebElement element)
         {
-            
             var select = new SelectElement(element);
-            Waiters.WaitForLoadingFinished(_webDriver, 5);
             select.Options.Last().Click();
 
         }

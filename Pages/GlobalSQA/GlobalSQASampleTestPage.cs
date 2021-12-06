@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using TestProject.Helpers;
@@ -9,13 +10,15 @@ namespace TestProject.Pages.GlobalSQA
     { 
         private readonly IWebDriver _webDriver;
         private readonly Actions _action;
+        private readonly ChromeOptions _options;
 
         private readonly string TestFile = SomeHelper.GetAbsoluteFilePath("Files", "TestFile.jpg");
         
-        public GlobalSQASampleTestPage (IWebDriver webDriver, Actions action)
+        public GlobalSQASampleTestPage (IWebDriver webDriver, ChromeOptions options ,Actions action)
         {
             _webDriver = webDriver;
             _action = action;
+            _options = options;
 
 
         }

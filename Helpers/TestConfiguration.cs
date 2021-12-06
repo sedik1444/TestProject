@@ -13,6 +13,7 @@ namespace TestProject.Helpers
         private static IWebDriver _webDriver;
         private readonly IObjectContainer container;
         private static Actions _action;
+        
    
 
         public TestConfiguration(IObjectContainer container)
@@ -23,10 +24,14 @@ namespace TestProject.Helpers
             [BeforeFeature]
             public static void OneTime()
             {
-                _webDriver = new ChromeDriver();
+                
                 var options = new ChromeOptions();
                 options.AddArgument("no-sandbox");
+                options.AddArgument("--disable-popup-blocking");
+                
+                _webDriver = new ChromeDriver(options);
                 _action = new Actions(_webDriver);
+                
                 _webDriver.Manage().Window.Maximize();
                 _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2000);
                 _webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(2000);
